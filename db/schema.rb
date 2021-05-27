@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_091048) do
+ActiveRecord::Schema.define(version: 2021_05_27_091857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.integer "rank"
+    t.integer "rank", default: 1
     t.datetime "next_time"
-    t.integer "skill"
-    t.integer "attack"
-    t.integer "defense"
-    t.integer "magic"
-    t.integer "health"
+    t.integer "skill", default: 12
+    t.integer "attack", default: 0
+    t.integer "defense", default: 0
+    t.integer "magic", default: 0
+    t.integer "health", default: 10
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
