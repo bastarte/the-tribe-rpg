@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_135811) do
+ActiveRecord::Schema.define(version: 2021_05_27_091048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "rank"
+    t.datetime "next_time"
+    t.integer "skill"
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "magic"
+    t.integer "health"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "fight_outputs", force: :cascade do |t|
+    t.bigint "fight_id", null: false
+    t.bigint "character_id", null: false
+    t.boolean "started"
+    t.boolean "won"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_fight_outputs_on_character_id"
+    t.index ["fight_id"], name: "index_fight_outputs_on_fight_id"
+  end
+
+  create_table "fights", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +58,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_135811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "characters", "users"
+  add_foreign_key "fight_outputs", "characters"
+  add_foreign_key "fight_outputs", "fights"
 end
