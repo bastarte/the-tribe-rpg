@@ -1,0 +1,3 @@
+ondine:
+  email: ondinetest@example.org
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'ondinepassword') %>
