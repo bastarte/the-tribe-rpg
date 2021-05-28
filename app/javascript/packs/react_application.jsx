@@ -45,8 +45,10 @@ class App extends React.Component {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const node = document.getElementById('characters_data')
+  const data = JSON.parse(node.getAttribute('data'))
   ReactDOM.render(
-    <App name="truc6" />,
+    <App data={data} />,
     document.body.appendChild(document.createElement('div')),
   )
 })
