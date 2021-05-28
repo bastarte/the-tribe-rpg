@@ -1,2 +1,27 @@
-<h1>Characters#index</h1>
-<p>Find me in app/views/characters/index.html.erb</p>
+<h1>Enjoy the party</h1>
+
+<% @characters.each do |character| %>
+  <div class="container">
+    <div class="char-card">
+      <div class="char-avatar">
+        <%= image_tag "avatar-pikachu.png", class:"img-fluid", alt: "Fighter avatar", width:100, height: 100 %>
+      </div>
+      <div class="char-content">
+        <div class="char-name">
+          <h3 ><%= "#{character.name || "Secret fighter"}" %></h3>
+        </div>
+        <div class="char-skills">
+          <span class="skill">A: <%= "#{character.attack}" %></span>
+          <span class="skill">D: <%= "#{character.defense}" %></span>
+          <span class="skill">M: <%= "#{character.magic}" %></span>
+          <span class="skill">H: <%= "#{character.health}" %></span>
+          <span class="skill">?: <%= "#{character.skill}" %></span>
+        </div>
+      </div>
+      <div class="char-actions">
+        <button type="button" class="btn btn-dark btn-sm btn-block">🖊️Edit</button>
+        <button type="button" class="btn btn-dark btn-sm btn-block">⚡Fight</button>
+      </div>
+    </div>
+  </div>
+<% end %>

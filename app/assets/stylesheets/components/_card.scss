@@ -1,0 +1,29 @@
+.char-card {
+  background-color: white;
+  border: 1px solid lightgrey;
+  width: 90%;
+  max-width: 80%;
+  height: 102px;
+  margin: 16px;
+  display: inline-flex;
+}
+
+.char-avatar {
+  background-color: lightgrey;
+}
+
+.char-content {
+  padding: 8px;
+  overflow-wrap: break-word;
+  max-width: inherit;
+  flex-grow: 1;
+}
+
+.char-actions {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px;
+}
