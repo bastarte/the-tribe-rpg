@@ -5,10 +5,12 @@ import App from './components/App.jsx';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const node = document.getElementById('characters_data')
-  const characters = JSON.parse(node.getAttribute('data'))
+  const node = document.getElementById('data')
+  const characters_data = JSON.parse(node.getAttribute('characters_data'))
+  const characters_path_data = JSON.parse(node.getAttribute('characters_path_data'))
+
   ReactDOM.render(
-    <App characters={characters} />,
+    <App characters_data={characters_data} characters_path={characters_path_data}/>,
     document.body.appendChild(document.createElement('div')),
   )
 })

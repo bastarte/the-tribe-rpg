@@ -19,11 +19,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        {Object.keys(this.props.characters)
+        {Object.keys(this.props.characters_data)
           .map(key => <Character
                                 key = {key}
                                 index = {key}
-                                details = {this.props.characters[key]}
+                                details = {this.props.characters_data[key]}
                                 />
           )}
       </div>
